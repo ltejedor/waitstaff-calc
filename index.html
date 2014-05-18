@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular JS Tutorial</title>
+  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet"  href="css/main.css">
+ <head>
+ <body>
+ 	<div class="header">
+ 		<img src="img/face.png">
+ 		<img class="right" src="img/angular_logo.png">
+ 	</div>
+ 	<div class="container spaced" ng-app="mad_libs">
+ 		<div class="row">
+ 			<input type="text" ng-model="number" placeholder="number">
+ 			<input type="text" ng-model="name_1" placeholder="name">
+ 			<input type="text" ng-model="proper_noun" placeholder="proper noun">
+ 		</div>
+
+ 		<div class="row">
+ 			<input type="text" ng-model="verb_ing" placeholder="verb ending in ing">
+ 			<input type="text" ng-model="adjective_1" placeholder="adjective">
+ 			<input type="text" ng-model="noun_1" placeholder="noun">
+ 		</div>
+
+ 		<div class="row">
+ 			<input type="text" ng-model="noun_2" placeholder="noun">
+ 			<input type="text" ng-model="name_2" placeholder"name">
+ 			<input type="text" ng-model="noun_3" placeholder="noun">
+ 		</div>
+
+ 		<div class="row">
+ 			<input type="text" ng-model="event" placeholder="event">
+ 			<input type="text" ng-model="adjective_y" placeholder="adjective ending in y">
+ 			<input type="text" ng-model="verb_ed" placeholder="verb ending in ed">
+ 		</div>
+
+ 		<div class="row">
+ 			<input type="text" ng-model="adjective_2" placeholder="adjective">
+ 			<input type="text" ng-model="verb_s" placeholder="verb ending in s">
+ 			<input type="text" ng-model="noun_4" placeholder="plural noun">
+ 		</div>
+
+ 		<div class="row spaced">
+
+ 			<span>{{ number }}</span> years, <span>{{ name_1 }}</span>. Working with the <span>{{ proper_noun }}</span>. <span>{{ verb_ing }}</span> my friends get more and more <span>{{ adjective_1 }}</span>... a <span>{{ noun_1}}</span>. A <span>{{ noun_2 }}</span>. Hell, I could fit {{ name_2 }} in my <span>{{ noun_3 }}</span>, but come a <span>{{ event }}</span>, he had a <span>{{ adjective_y }}</span> mojo not to be <span>{{ verb_ed }}</span> with. <span>{{ adjective_2 }}</span>, all of them. And I'm the guy who <span>{{ verb_s }}</span> the <span>{{ noun_4 }}</span>.
+ 		</div>
+
+ 	</div>
+ 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+ 	<script src="js/module.js"></script>
+</body>
+</html>
