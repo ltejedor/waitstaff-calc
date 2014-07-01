@@ -10,4 +10,12 @@ angular.module('madLibsApp', [])
 		$scope.nongendered = function(){
 			$scope.guygalperson = "person";
 		}
+
+		$scope.submit = function() {
+			if($scope.madForm.$valid) {
+
+			} else {
+
+			}
+		};
 	})
