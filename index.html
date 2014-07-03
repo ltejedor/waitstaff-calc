@@ -14,62 +14,62 @@
  	<div class="container spaced" ng-app="mad_libs">
  		<div class="row space">
  			This is a final season rant by a
- 			<button class="male" ng-click="male()">Male</button>
- 			<button class="female" ng-click="female()">Female</button>
- 			<button class="nongendered" ng-click="nongendered()">Just a Person</button>
+ 			<button id="1" class="male" ng-class='{"activebtn":tog==1}' ng-click="male(); tog=1">Male</button>
+ 			<button id="2" class="female" ng-class='{"activebtn":tog===2}' ng-click="female(); tog=2">Female</button>
+ 			<button id="3" class="nongendered" ng-class='{"activebtn":tog==3}' ng-click="nongendered(); tog=3">Just a Person</button>
  		</div>
  		<form name="madForm" ng-submit="submitted=true; submit();" novalidate ng-show="showMad">
 
 	 		<div class="col-4">
-	 			<input type="number" name="myNumber" ng-model="number" placeholder="number" required>
+	 			<input type="number" name="myNumber" ng-model="data.number" placeholder="number" required>
 	 			<span class="error" ng-if="submitted && madForm.myNumber.$error.number">Please fill with valid number</span>
 	 			<span class="error" ng-if="submitted && madForm.myNumber.$error.required">Please fill with valid number</span>
 
- 				<input type="text" name="nameOne" ng-model="name_1" placeholder="name" required>
+ 				<input type="text" name="nameOne" ng-model="data.name_1" placeholder="name" required>
  				<span class="error" ng-if="submitted && madForm.nameOne.$error.required">Please fill me out</span>
 
-	 			<input type="text" name="properNoun" ng-model="proper_noun" placeholder="proper noun" required>
+	 			<input type="text" name="properNoun" ng-model="data.proper_noun" placeholder="proper noun" required>
 	 			<span class="error" ng-if="submitted && madForm.properNoun.$error.required">Please fill me out</span>
 
- 				<input type="text" name="verbIng" ng-model="verb_ing" placeholder="verb ending in ing" required>
+ 				<input type="text" name="verbIng" ng-model="data.verb_ing" placeholder="verb ending in ing" required>
  				<span class="error" ng-if="submitted && madForm.verbIng.$error.required">Please fill me out</span>
 
- 				<input type="text" name="adjectiveOne" ng-model="adjective_1" placeholder="adjective" required>
+ 				<input type="text" name="adjectiveOne" ng-model="data.adjective_1" placeholder="adjective" required>
  				<span class="error" ng-if="submitted && madForm.adjectiveOne.$error.required">Please fill me out</span>
  			</div>
 
 			<div class="col-4">
- 				<input type="text" name="nounOne" ng-model="noun_1" placeholder="noun" required>
+ 				<input type="text" name="nounOne" ng-model="data.noun_1" placeholder="noun" required>
  				<span class="error" ng-if="submitted && madForm.nounOne.$error.required">Please fill me out</span>
 
- 				<input type="text" name="noun" ng-model="noun_2" placeholder="noun" required>
+ 				<input type="text" name="noun" ng-model="data.noun_2" placeholder="noun" required>
  				<span class="error" ng-if="submitted && madForm.noun.$error.required" required>Please fill me out</span>
 
-	 			<input type="text" name="nameTwo" ng-model="name_2" placeholder="name" required>
+	 			<input type="text" name="nameTwo" ng-model="data.name_2" placeholder="name" required>
 	 			<span class="error" ng-if="submitted && madForm.nameTwo.$error.required">Please fill me out</span>
 
-	 			<input type="text" name="nounThree" ng-model="noun_3" placeholder="noun" required>
+	 			<input type="text" name="nounThree" ng-model="data.noun_3" placeholder="noun" required>
 	 			<span class="error" ng-if="submitted && madForm.nounThree.$error.required">Please fill me out</span>
 
 
- 				<input type="text" name="event" ng-model="event" placeholder="event" required>
- 				<span class="error" ng-if="submitted && madForm.event.$error.required">Please fill me out</span>
+ 				<input type="text" name="eventOne" ng-model="data.event" placeholder="event" required>
+ 				<span class="error" ng-if="submitted && madForm.eventOne.$error.required">Please fill me out</span>
  			</div>
 
  			<div class="col-4">
- 				<input type="text" name="adjectiveY" ng-model="adjective_y" placeholder="adjective ending in y" required>
+ 				<input type="text" name="adjectiveY" ng-model="data.adjective_y" placeholder="adjective ending in y" required>
  				<span class="error" ng-if="submitted && madForm.adjectiveY.$error.required">Please fill me out</span>
 
- 				<input type="text" name="verbEd" ng-model="verb_ed" placeholder="verb ending in ed" required>
+ 				<input type="text" name="verbEd" ng-model="data.verb_ed" placeholder="verb ending in ed" required>
  				<span class="error" ng-if="submitted && madForm.verbEd.$error.required">Please fill me out</span>
 
- 				<input type="text" name="adjectiveTwo" ng-model="adjective_2" placeholder="adjective" required>
+ 				<input type="text" name="adjectiveTwo" ng-model="data.adjective_2" placeholder="adjective" required>
  				<span class="error" ng-if="submitted && madForm.adjectiveTwo.$error.required">Please fill me out</span>
 
- 				<input type="text" name="verbS" ng-model="verb_s" placeholder="verb ending in s" required>
+ 				<input type="text" name="verbS" ng-model="data.verb_s" placeholder="verb ending in s" required>
  				<span class="error" ng-if="submitted && madForm.verbS.$error.required">Please fill me out</span>
 
- 				<input type="text" name="nounFour" ng-model="noun_4" placeholder="plural noun" required>
+ 				<input type="text" name="nounFour" ng-model="data.noun_4" placeholder="plural noun" required>
  				<span class="error" ng-if="submitted && madForm.nounFour.$error.required">Please fill me out</span>
 	 		</div>
 
@@ -81,7 +81,11 @@
 
  		<div class="row spaced-top" ng-show="showResult">
 
- 			<span>{{ number }}</span> years, <span>{{ name_1 }}</span>. Working with the <span>{{ proper_noun }}</span>. <span>{{ verb_ing }}</span> my friends get more and more <span>{{ adjective_1 }}</span>... a <span>{{ noun_1}}</span>. A <span>{{ noun_2 }}</span>. Hell, I could fit {{ name_2 }} in my <span>{{ noun_3 }}</span>, but come a <span>{{ event }}</span>, he had a <span>{{ adjective_y }}</span> mojo not to be <span>{{ verb_ed }}</span> with. <span>{{ adjective_2 }}</span>, all of them. And I'm the {{guygalperson}} who <span>{{ verb_s }}</span> the <span>{{ noun_4 }}</span>.
+ 			<span>{{ data.number }}</span> years, <span>{{ data.name_1 }}</span>. Working with the <span>{{ data.proper_noun }}</span>. <span>{{ data.verb_ing }}</span> my friends get more and more <span>{{ data.adjective_1 }}</span>... a <span>{{ data.noun_1}}</span>. A <span>{{ data.noun_2 }}</span>. Hell, I could fit {{ data.name_2 }} in my <span>{{ data.noun_3 }}</span>, but come a <span>{{ data.eventOne }}</span>, he had a <span>{{ data.adjective_y }}</span> mojo not to be <span>{{ data.verb_ed }}</span> with. <span>{{ data.adjective_2 }}</span>, all of them. And I'm the {{guygalperson}} who <span>{{ data.verb_s }}</span> the <span>{{ data.noun_4 }}</span>.
+
+ 			<div class="row">
+ 				<button ng-click="reset()" value="Reset" class="main js-reset">Reset</button>
+ 			</div>
  		</div>
 
  	</div>
