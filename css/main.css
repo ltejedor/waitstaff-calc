@@ -4,7 +4,8 @@ body{font-family: 'Arvo', serif; font-family: 1.2em; line-height: 1.5em;}
 .right{float: right; padding-top: 50px;}
 
 
-.col{display: inline-block;}
+.col{float: left;}
+.col-4{width: 33%; float: left;}
 
 .error{margin-left: 10px; color: #B53E3E; display: inline-block;}
 
@@ -38,3 +39,5 @@ button:hover{background-color: #6A8DD3;}
 .spaced-top{margin-top:20px;}
 
 .hidden{display: none;}
+
+

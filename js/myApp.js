@@ -1,5 +1,6 @@
 angular.module('madLibsApp', [])
 	.controller('madCtrl', function($scope){
+		$scope.showMad = true;
 		$scope.guygalperson = "guy";
 		$scope.male = function(){
 			$scope.guygalperson = "guy";
@@ -13,9 +14,8 @@ angular.module('madLibsApp', [])
 
 		$scope.submit = function() {
 			if($scope.madForm.$valid) {
-
-			} else {
-
-			}
+				$scope.showResult = true;
+				$scope.showMad = false;
+			};
 		};
 	})
