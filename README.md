@@ -1,4 +1,4 @@
-mad_libs
+Waitstaff Calculator
 ========
 
-working with angular
+an space diner themed app that calculates tip throughout a shift.
