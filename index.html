@@ -1,92 +1,66 @@
 <!doctype html>
-<html lang="en" ng-app="madLibsApp">
+<html lang="en" ng-app="waitCalcApp">
 <head>
   <meta charset="UTF-8">
-  <title>Angular JS Tutorial</title>
-  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+  <title>SpaceBar Waitstaff Calculator</title>
+
+  <link rel="stylesheet"  href="css/normalize.css">
   <link rel="stylesheet"  href="css/main.css">
  <head>
- <body ng-controller="madCtrl">
- 	<div class="header">
- 		<img src="img/face.png">
- 		<img class="right" src="img/angular_logo.png">
- 	</div>
- 	<div class="container spaced" ng-app="mad_libs">
- 		<div class="row space">
- 			This is a final season rant by a
- 			<button id="1" class="male" ng-class='{"activebtn":tog==1}' ng-click="male(); tog=1">Male</button>
- 			<button id="2" class="female" ng-class='{"activebtn":tog===2}' ng-click="female(); tog=2">Female</button>
- 			<button id="3" class="nongendered" ng-class='{"activebtn":tog==3}' ng-click="nongendered(); tog=3">Just a Person</button>
+ <body ng-controller="calcCtrl">
+ 	<div class="container">
+ 		<h2>SpaceBar Waitstaff Calculator</h2>
+
+
+ 		<div class="col-6">
+ 			<div class="box">
+	 			<div class="heading">
+	 				Enter the Meal Details
+	 			</div>
+	 			<form name="detailsForm" ng-submit="submitted=true; submit();" novalidate>
+		 			<p>
+		 				Base Meal Price: $
+		 				<input type="number" name="mealTotal" ng-model="data.meal" required>
+		 				<p ng-if="detailsForm.mealTotal.$error.number || (submitted && detailsForm.mealTotal.$error.required)">Please enter a valid number</p>
+		 			</p>
+		 			<p>
+		 				Tax Rate: %
+		 				<input type="number" name="taxRate" ng-model="data.tax" required>
+		 				<p ng-if="detailsForm.taxRate.$error.number || (submitted && detailsForm.taxRate.$error.required)">Please enter a valid number</p>
+		 			</p>
+		 			<p>
+		 				Tip Percentage: %
+		 				<input type="number" name="tipPerc" ng-model="data.tip" required>
+		 				<p ng-if="detailsForm.tipPerc.$error.number || (submitted && detailsForm.tipPerc.$error.required)">Please enter a valid number</p>
+		 			</p>
+		 			<button type="submit" class="main">Submit</button> <button class="secondary">Cancel</button>
+		 		</form>
+	 		</div>
  		</div>
- 		<form name="madForm" ng-submit="submitted=true; submit();" novalidate ng-show="showMad">
 
-	 		<div class="col-4">
-	 			<input type="number" name="myNumber" ng-model="data.number" placeholder="number" required>
-	 			<span class="error" ng-if="submitted && madForm.myNumber.$error.number">Please fill with valid number</span>
-	 			<span class="error" ng-if="submitted && madForm.myNumber.$error.required">Please fill with valid number</span>
-
- 				<input type="text" name="nameOne" ng-model="data.name_1" placeholder="name" required>
- 				<span class="error" ng-if="submitted && madForm.nameOne.$error.required">Please fill me out</span>
-
-	 			<input type="text" name="properNoun" ng-model="data.proper_noun" placeholder="proper noun" required>
-	 			<span class="error" ng-if="submitted && madForm.properNoun.$error.required">Please fill me out</span>
-
- 				<input type="text" name="verbIng" ng-model="data.verb_ing" placeholder="verb ending in ing" required>
- 				<span class="error" ng-if="submitted && madForm.verbIng.$error.required">Please fill me out</span>
-
- 				<input type="text" name="adjectiveOne" ng-model="data.adjective_1" placeholder="adjective" required>
- 				<span class="error" ng-if="submitted && madForm.adjectiveOne.$error.required">Please fill me out</span>
+ 		<div class="col-6">
+ 			<div class="box">
+ 				<div class="heading">
+ 					Customer Charges
+ 				</div>
+ 				<p>Subtotal: <span> {{ subtotal | currency }} </span></p>
+ 				<p>Tip: <span> {{ tiptotal | currency }} </span></p>
+ 				<p>Total: <span> {{ totaltotal | currency }} </span></p>
  			</div>
 
-			<div class="col-4">
- 				<input type="text" name="nounOne" ng-model="data.noun_1" placeholder="noun" required>
- 				<span class="error" ng-if="submitted && madForm.nounOne.$error.required">Please fill me out</span>
-
- 				<input type="text" name="noun" ng-model="data.noun_2" placeholder="noun" required>
- 				<span class="error" ng-if="submitted && madForm.noun.$error.required" required>Please fill me out</span>
-
-	 			<input type="text" name="nameTwo" ng-model="data.name_2" placeholder="name" required>
-	 			<span class="error" ng-if="submitted && madForm.nameTwo.$error.required">Please fill me out</span>
-
-	 			<input type="text" name="nounThree" ng-model="data.noun_3" placeholder="noun" required>
-	 			<span class="error" ng-if="submitted && madForm.nounThree.$error.required">Please fill me out</span>
-
-
- 				<input type="text" name="eventOne" ng-model="data.event" placeholder="event" required>
- 				<span class="error" ng-if="submitted && madForm.eventOne.$error.required">Please fill me out</span>
- 			</div>
-
- 			<div class="col-4">
- 				<input type="text" name="adjectiveY" ng-model="data.adjective_y" placeholder="adjective ending in y" required>
- 				<span class="error" ng-if="submitted && madForm.adjectiveY.$error.required">Please fill me out</span>
-
- 				<input type="text" name="verbEd" ng-model="data.verb_ed" placeholder="verb ending in ed" required>
- 				<span class="error" ng-if="submitted && madForm.verbEd.$error.required">Please fill me out</span>
-
- 				<input type="text" name="adjectiveTwo" ng-model="data.adjective_2" placeholder="adjective" required>
- 				<span class="error" ng-if="submitted && madForm.adjectiveTwo.$error.required">Please fill me out</span>
-
- 				<input type="text" name="verbS" ng-model="data.verb_s" placeholder="verb ending in s" required>
- 				<span class="error" ng-if="submitted && madForm.verbS.$error.required">Please fill me out</span>
-
- 				<input type="text" name="nounFour" ng-model="data.noun_4" placeholder="plural noun" required>
- 				<span class="error" ng-if="submitted && madForm.nounFour.$error.required">Please fill me out</span>
-	 		</div>
-
-	 		<div class="row">
-	 			<button type="submit" value="Submit" class="main js-submit">Submit</button>
-	 		</div>
-
-	 	</form>
-
- 		<div class="row spaced-top" ng-show="showResult">
-
- 			<span>{{ data.number }}</span> years, <span>{{ data.name_1 }}</span>. Working with the <span>{{ data.proper_noun }}</span>. <span>{{ data.verb_ing }}</span> my friends get more and more <span>{{ data.adjective_1 }}</span>... a <span>{{ data.noun_1}}</span>. A <span>{{ data.noun_2 }}</span>. Hell, I could fit {{ data.name_2 }} in my <span>{{ data.noun_3 }}</span>, but come a <span>{{ data.eventOne }}</span>, he had a <span>{{ data.adjective_y }}</span> mojo not to be <span>{{ data.verb_ed }}</span> with. <span>{{ data.adjective_2 }}</span>, all of them. And I'm the {{guygalperson}} who <span>{{ data.verb_s }}</span> the <span>{{ data.noun_4 }}</span>.
-
- 			<div class="row">
- 				<button ng-click="reset()" value="Reset" class="main js-reset">Reset</button>
+ 			<div class="box">
+ 				<div class="heading">
+ 					My Earnings Info
+ 				</div>
+ 				<p>Tip Total: <span> {{ tip_total | currency}} </span></p>
+ 				<p>Meal Count: <span> {{ meal_count }} </span></p>
+ 				<p>Average Tip per Meal: <span> {{ tip_average | currency }}</span></p>
  			</div>
  		</div>
+
+ 		<button ng-click="reset()" class="main right">Reset</button>
+
+
 
  	</div>
  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
