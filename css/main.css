@@ -1,9 +1,36 @@
-body{background-image: url(../img/space-01.png)}
+body{background-image: url(../img/white_wall_hash.png); color: #292B2D; font-family: 'Cardo', serif;}
 
-.container{width: 960px; margin: 0 auto; background-color: #D3DAEA; overflow: auto;}
-h2{text-align: center;}
+.container{width: 960px; margin: 0 auto;}
 
-.col-6{width: 48%; float: left;}
-.heading{font-weight: bold;}
+header{text-align: center; padding: 25px 0 0;}
+header img{display: block; margin: 0 auto;}
+header h2, .bold{font-weight: 700;}
+header p{color: #953192; font-style: italic; margin-top:-15px;}
+
+.col-6{width: 45%; float: left; margin: 0 0 0 4%;}
 
 .right{float: right;}
+
+.box{background-color: #F4F3ED; margin-top: 30px;}
+.box .formInput{float: right; margin-right: 97px}
+.box .heading{font-weight:  700; background-color: #292B2D; color: #F4F3ED; padding: 4px 7px;}
+.box p{padding: 2px 12px;}
+.box .error{color: #D6617A;}
+
+.button{
+	font-family: inherit;
+	font-size: 100%;
+	padding: .3em .7em;
+	color: #444;
+	color: rgba(0,0,0,.8);
+	border: 1px solid #999;
+	border: 0 rgba(0,0,0,0);
+	background-color: #E6E6E6;
+	text-decoration: none;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-bottom: 25px;
+}
+
+.button:hover{background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));}
+.main{font-weight: 700; background-color: #953192; color: #F4F3ED; margin-left: 15px;}

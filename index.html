@@ -2,15 +2,21 @@
 <html lang="en" ng-app="waitCalcApp">
 <head>
   <meta charset="UTF-8">
-  <title>SpaceBar Waitstaff Calculator</title>
+  <title>Doggy Diner Waitstaff Calculator</title>
 
   <link rel="stylesheet"  href="css/normalize.css">
   <link rel="stylesheet"  href="css/main.css">
+
+  <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+
  <head>
  <body ng-controller="calcCtrl">
  	<div class="container">
- 		<h2>SpaceBar Waitstaff Calculator</h2>
-
+ 		<header>
+	 		<img src="img/dinerlogo.png">
+	 		<h2>Doggy Diner Waitstaff Calculator</h2>
+	 		<p>High end dining for pets and their humans</p>
+	 	</header>
 
  		<div class="col-6">
  			<div class="box">
@@ -19,21 +25,22 @@
 	 			</div>
 	 			<form name="detailsForm" ng-submit="submitted=true; submit();" novalidate>
 		 			<p>
-		 				Base Meal Price: $
-		 				<input type="number" name="mealTotal" ng-model="data.meal" required>
-		 				<p ng-if="detailsForm.mealTotal.$error.number || (submitted && detailsForm.mealTotal.$error.required)">Please enter a valid number</p>
+		 				Base Meal Price:
+		 				<input class="formInput" type="number" placeholder="$" name="mealTotal" ng-model="data.meal" required>
+		 				<p class="error" ng-if="detailsForm.mealTotal.$error.number || (submitted && detailsForm.mealTotal.$error.required)">Please enter a valid number</p>
 		 			</p>
 		 			<p>
-		 				Tax Rate: %
-		 				<input type="number" name="taxRate" ng-model="data.tax" required>
-		 				<p ng-if="detailsForm.taxRate.$error.number || (submitted && detailsForm.taxRate.$error.required)">Please enter a valid number</p>
+		 				Tax Rate:
+		 				<input class="formInput" type="number" placeholder="%" name="taxRate" ng-model="data.tax" required>
+		 				<p class="error" ng-if="detailsForm.taxRate.$error.number || (submitted && detailsForm.taxRate.$error.required)">Please enter a valid number</p>
 		 			</p>
 		 			<p>
-		 				Tip Percentage: %
-		 				<input type="number" name="tipPerc" ng-model="data.tip" required>
-		 				<p ng-if="detailsForm.tipPerc.$error.number || (submitted && detailsForm.tipPerc.$error.required)">Please enter a valid number</p>
+		 				Tip Percentage:
+		 				<input class="formInput" type="number" placeholder="%" name="tipPerc" ng-model="data.tip" required>
+		 				<p class="error" ng-if="detailsForm.tipPerc.$error.number || (submitted && detailsForm.tipPerc.$error.required)">Please enter a valid number</p>
 		 			</p>
-		 			<button type="submit" class="main">Submit</button> <button class="secondary">Cancel</button>
+		 			<button class="button main" type="submit" >Submit</button>
+		 			<input type="button" class="button secondary" ng-click="cancel()" value="Cancel">
 		 		</form>
 	 		</div>
  		</div>
@@ -45,7 +52,7 @@
  				</div>
  				<p>Subtotal: <span> {{ subtotal | currency }} </span></p>
  				<p>Tip: <span> {{ tiptotal | currency }} </span></p>
- 				<p>Total: <span> {{ totaltotal | currency }} </span></p>
+ 				<p>Total: <span class="bold"> {{ totaltotal | currency }} </span></p>
  			</div>
 
  			<div class="box">
@@ -58,7 +65,7 @@
  			</div>
  		</div>
 
- 		<button ng-click="reset()" class="main right">Reset</button>
+ 		<button ng-click="reset()" class="button main right">Reset</button>
 
 
 

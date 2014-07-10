@@ -14,6 +14,10 @@ angular.module('waitCalcApp', [])
 			};
 		}
 
+		$scope.cancel = function(){
+			init();
+		};
+
 		function customerCharge(){
 			$scope.subtotal = $scope.data.meal + ($scope.data.meal * ($scope.data.tax * .01));
 			$scope.tiptotal = $scope.data.meal * ($scope.data.tip * .01);
